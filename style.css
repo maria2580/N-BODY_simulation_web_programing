@@ -1,0 +1,234 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #000;
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#info {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 15px;
+    background-color: rgba(20, 20, 30, 0.85);
+    border: 1px solid #4a4a8f;
+    border-radius: 8px;
+    width: 20vw;
+    min-width: 300px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#info h2 {
+    margin-top: 0;
+    color: #9e9eff;
+    border-bottom: 1px solid #4a4a8f;
+    padding-bottom: 5px;
+    font-size: 1.1em;
+}
+
+#info h2.clickable {
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+#info h2.clickable:hover {
+    color: #c8c8ff;
+}
+
+
+#info p {
+    font-size: 13px;
+    line-height: 1.4;
+    margin: 4px 0;
+}
+
+#controls {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+button {
+    background-color: #4a4a8f;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.2s;
+    font-size: 12px;
+}
+
+button:hover {
+    background-color: #6a6aff;
+}
+
+button:active {
+    background-color: #3a3a7f;
+}
+
+#object-count {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #4a4a8f;
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* Modal Styles */
+#dimension-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    z-index: 100;
+}
+
+#dimension-modal.modal-hidden {
+    display: none;
+}
+
+#modal-content {
+    background-color: #1c1c2c;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #4a4a8f;
+    min-width: 300px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+#modal-content h3 {
+    margin-top: 0;
+    color: #9e9eff;
+    text-align: center;
+}
+
+#dimension-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+#dimension-list li {
+    padding: 12px;
+    margin: 5px 0;
+    background-color: #2a2a4f;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#dimension-list li:hover {
+    background-color: #4a4a8f;
+    transform: scale(1.02);
+}
+
+#close-modal-btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #666;
+}
+
+#close-modal-btn:hover {
+    background-color: #888;
+}
+
+/* MODIFICATION START: Axes Legend Styles */
+#axes-legend {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #4a4a8f;
+}
+
+#axes-legend p {
+    font-size: 12px;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-right: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+/* MODIFICATION END */
+
+/* Dropdown Styles */
+#global-controls {
+    margin-top: 20px;
+    border-top: 1px solid #4a4a8f;
+    padding-top: 10px;
+}
+
+.dropdown {
+    margin-bottom: 10px;
+}
+
+.dropdown-btn {
+    width: 100%;
+    text-align: left;
+    background-color: #3a3a5f;
+    border-radius: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    padding: 15px;
+    background-color: #1c1c2c;
+    border: 1px solid #4a4a8f;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    margin-top: -5px; /* 버튼과 콘텐츠 사이 간격 조정 */
+}
+
+.dropdown-content.show {
+    display: block;
+}
+
+.dropdown-content label {
+    display: block;
+    margin: 10px 0 5px 0;
+    font-size: 12px;
+    color: #aaa;
+}
+
+.dropdown-content input[type="range"] {
+    width: 100%;
+}
+
+/* 스크롤바 스타일링 (선택적) */
+#info::-webkit-scrollbar {
+  width: 8px;
+}
+
+#info::-webkit-scrollbar-track {
+  background: #1c1c2c;
+  border-radius: 10px;
+}
+
+#info::-webkit-scrollbar-thumb {
+  background: #4a4a8f;
+  border-radius: 10px;
+}
+
+#info::-webkit-scrollbar-thumb:hover {
+  background: #6a6aff;
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>4D Hyper-Viewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="info">
+        <h2 id="dimension-title" class="clickable">Dimension Viewer</h2>
+        <p id="dimension-desc">각 창은 4D 공간의 다른 단면을 보여줍니다. (제목을 클릭하여 변경)</p>
+        <div id="controls">
+            <button id="add-box-btn">입자 소환</button>
+            <input type="number" id="particle-count-input" value="100" min="1" style="width: 60px; background-color: #1c1c2c; color: white; border: 1px solid #4a4a8f; border-radius: 5px; padding: 5px;">
+            <button id="reset-btn">모든 입자 제거</button>
+            <button id="camera-reset-btn">카메라 리셋</button>
+            <button id="doppler-btn" disabled>도플러 효과</button>
+        </div>
+        <div id="object-count">Particles: 0</div>
+
+        <div id="axes-legend">
+            <p id="legend-x"><span class="legend-color" style="background-color: #ff4444;"></span> X-Axis (Red)</p>
+            <p id="legend-y"><span class="legend-color" style="background-color: #44ff44;"></span> Y-Axis (Green)</p>
+            <p id="legend-z"><span class="legend-color" style="background-color: #4444ff;"></span> Z-Axis (Blue)</p>
+        </div>
+
+        <div id="global-controls">
+            <div class="dropdown">
+                <button class="dropdown-btn">Simulation Controls</button>
+                <div class="dropdown-content">
+                    <label for="time-speed-slider">Time Speed: <span id="time-speed-value">0.01</span></label>
+                    <input type="range" id="time-speed-slider" min="-1" max="1" step="0.0001" value="0.01">
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropdown-btn">Physics Constants</button>
+                <div class="dropdown-content">
+                    <label for="g-slider">Gravity (G): <span id="g-value">98</span></label>
+                    <input type="range" id="g-slider" min="0" max="200" value="98">
+                    
+                    <label for="softening-slider">Softening: <span id="softening-value">100</span></label>
+                    <input type="range" id="softening-slider" min="1" max="500" value="100">
+                </div>
+            </div>
+       
+            
+            <div class="dropdown">
+                <button class="dropdown-btn">Particle Properties</button>
+                <div class="dropdown-content">
+                    <label for="radiation-slider">Radiation: <span id="radiation-value">0.05</span></label>
+                    <input type="range" id="radiation-slider" min="0" max="0.1" step="0.001" value="0.05">
+
+                    <label for="cooling-slider">Cooling: <span id="cooling-value">0.001</span></label>
+                    <input type="range" id="cooling-slider" min="0" max="0.01" step="0.0001" value="0.001">
+                </div>
+            </div>
+             <div class="dropdown">
+                <button class="dropdown-btn">Particle Initial State</button>
+                <div class="dropdown-content">
+                    <label for="radius-slider">Radius: <span id="radius-value">10</span></label>
+                    <input type="range" id="radius-slider" min="1" max="50" value="10">
+
+                    <label for="pos-spread-slider">Position Spread: <span id="pos-spread-value">1000</span></label>
+                    <input type="range" id="pos-spread-slider" min="100" max="5000" value="1000">
+
+                    <label for="vel-spread-slider">Velocity Spread: <span id="vel-spread-value">10000</span></label>
+                    <input type="range" id="vel-spread-slider" min="1000" max="50000" value="10000">
+                    
+                    <label for="temp-min-slider">Min Temperature: <span id="temp-min-value">500</span></label>
+                    <input type="range" id="temp-min-slider" min="100" max="2000" value="500">
+                    
+                    <label for="temp-range-slider">Temperature Range: <span id="temp-range-value">2000</span></label>
+                    <input type="range" id="temp-range-slider" min="500" max="10000" value="2000">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="dimension-modal" class="modal-hidden">
+        <div id="modal-content">
+            <h3>관점 선택 (Select View)</h3>
+            <ul id="dimension-list">
+            </ul>
+            <button id="close-modal-btn">닫기</button>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="three.r124.min.js"></script>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
